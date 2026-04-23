@@ -267,14 +267,17 @@ button {
 .nav-logo {
   display: flex;
   align-items: center;
-  width: fit-content;
+  height: var(--nav-height);
+  overflow: hidden;
+  flex-shrink: 0;
   text-decoration: none;
 }
 
 .nav-logo img {
+  /* Larger than container — transparent PNG padding gets clipped by overflow:hidden */
+  height: 148px;
   width: auto;
-  height: 86px;
-  object-fit: contain;
+  display: block;
 }
 
 .nav-links {
@@ -1473,7 +1476,7 @@ button {
   }
 
   .nav-logo img {
-    height: 72px;
+    height: 128px;
   }
 
   .nav-links,
@@ -1661,7 +1664,7 @@ button {
   }
 
   .nav-logo img {
-    height: 62px;
+    height: 112px;
   }
 
   .hero {
@@ -1737,6 +1740,155 @@ button {
     bottom: 16px;
     width: 54px;
     height: 54px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-inner {
+    gap: 60px;
+  }
+
+  .hero-image-wrap {
+    width: min(100%, 450px);
+  }
+
+  .gallery-grid {
+    gap: 14px;
+  }
+
+  .about-grid,
+  .coverage-grid,
+  .contact-grid {
+    gap: 50px;
+  }
+
+  .nav-links a {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .nav-actions .btn-sm {
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .section,
+  .ba-section,
+  .coverage {
+    padding: 48px 0;
+  }
+
+  .hero {
+    padding: calc(var(--nav-height) + 20px) 0 40px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero-features {
+    gap: 8px;
+  }
+
+  .hero-feature {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .hero-ctas {
+    gap: 12px;
+  }
+
+  .section-title,
+  .coverage-title {
+    font-size: 1.5rem;
+  }
+
+  .section-subtitle,
+  .coverage-lead,
+  .about-lead {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    min-height: 40px;
+    padding: 0 16px;
+    font-size: 0.9rem;
+  }
+
+  .btn-lg {
+    min-height: 48px;
+    padding: 0 20px;
+  }
+
+  .contact-options {
+    gap: 16px;
+  }
+
+  .contact-card {
+    padding: 20px;
+  }
+
+  .form-card {
+    padding: 24px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-col h4 {
+    margin-bottom: 12px;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: min(100% - 20px, var(--container-max));
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .section-title,
+  .coverage-title {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 0.85rem;
+  }
+
+  .float-wa {
+    right: 12px;
+    bottom: 12px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .float-wa i {
+    width: 24px;
+    height: 24px;
   }
 }
 
