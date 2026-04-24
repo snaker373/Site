@@ -2010,6 +2010,135 @@ button {
   }
 }
 
+/* ── About without photo ──────────────────────────────────────────────────── */
+.about-grid--no-photo {
+  grid-template-columns: 1fr;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ── Lightbox ─────────────────────────────────────────────────────────────── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(10, 15, 25, 0.95);
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: calc(100vw - 120px);
+  max-height: calc(100vh - 80px);
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: calc(100vh - 130px);
+  object-fit: contain;
+  border-radius: 10px;
+  user-select: none;
+  display: block;
+}
+
+.lightbox-caption {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.18s;
+  flex-shrink: 0;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.lightbox-close svg {
+  width: 22px;
+  height: 22px;
+}
+
+.lightbox-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.18s;
+  flex-shrink: 0;
+}
+
+.lightbox-arrow:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.lightbox-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+.lightbox-prev {
+  left: 12px;
+}
+
+.lightbox-next {
+  right: 12px;
+}
+
+.gallery-item {
+  cursor: pointer;
+}
+
+@media (max-width: 560px) {
+  .lightbox-inner {
+    max-width: calc(100vw - 20px);
+  }
+
+  .lightbox-arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .lightbox-prev {
+    left: 6px;
+  }
+
+  .lightbox-next {
+    right: 6px;
+  }
+}
+
 
 .privacy-field { display: flex; justify-content: center; }
 .privacy-label { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.9rem; cursor: pointer; }

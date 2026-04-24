@@ -62,6 +62,7 @@
     initHeroSlider();
     initBeforeAfterSliders();
     initGallery();
+    initLightbox();
     initContactForm();
     optimizeImages();
   });
@@ -344,7 +345,92 @@
     applyFilter('all', false);
   }
 
-  var API_URL = 'https://andrii-ryndia.de/api/contact'; // change to http://localhost:8000/api/contact for local dev
+  function initLightbox() {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxCaption = document.getElementById('lightbox-caption');
+    var closeBtn = document.getElementById('lightbox-close');
+    var prevBtn = document.getElementById('lightbox-prev');
+    var nextBtn = document.getElementById('lightbox-next');
+
+    if (!lightbox || !lightboxImg) return;
+
+    var currentIndex = 0;
+    var currentItems = [];
+
+    function getVisibleItems() {
+      return Array.prototype.slice.call(
+        document.querySelectorAll('.gallery-item:not(.hidden)')
+      );
+    }
+
+    function show() {
+      var item = currentItems[currentIndex];
+      if (!item) return;
+      var img = item.querySelector('img');
+      var caption = item.querySelector('.gallery-overlay span');
+      lightboxImg.src = img ? img.src : '';
+      lightboxImg.alt = img ? (img.alt || '') : '';
+      if (lightboxCaption) lightboxCaption.textContent = caption ? caption.textContent : '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    }
+
+    function prev() {
+      currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length;
+      show();
+    }
+
+    function next() {
+      currentIndex = (currentIndex + 1) % currentItems.length;
+      show();
+    }
+
+    var grid = document.getElementById('gallery-grid');
+    if (grid) {
+      grid.addEventListener('click', function (event) {
+        var item = event.target.closest('.gallery-item');
+        if (!item) return;
+        currentItems = getVisibleItems();
+        currentIndex = currentItems.indexOf(item);
+        if (currentIndex === -1) return;
+        show();
+      });
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+    if (nextBtn) nextBtn.addEventListener('click', next);
+
+    lightbox.addEventListener('click', function (event) {
+      if (event.target === lightbox) close();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (!lightbox.classList.contains('open')) return;
+      if (event.key === 'Escape') close();
+      if (event.key === 'ArrowLeft') prev();
+      if (event.key === 'ArrowRight') next();
+    });
+
+    var touchStartX = 0;
+    lightbox.addEventListener('touchstart', function (event) {
+      touchStartX = event.touches[0].clientX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', function (event) {
+      var dx = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    }, { passive: true });
+  }
+
+  // Free key from web3forms.com — sign up with your email to get one
+  var WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
 
   function showFormSuccess() {
     var wrap = document.getElementById('contact-form-wrap');
@@ -388,10 +474,19 @@
       var btn = form.querySelector('[type="submit"]');
       setSubmitLoading(btn, true);
 
-      fetch(API_URL, {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          from_name: 'Andrii Ryndia Website',
+          subject: 'Neue Anfrage von der Website — ' + payload.name,
+          name: payload.name,
+          email: payload.email || 'nicht@angegeben.de',
+          phone: payload.phone || '—',
+          message: payload.message,
+          botcheck: ''
+        })
       })
         .then(function (res) { return res.json(); })
         .then(function (json) {
