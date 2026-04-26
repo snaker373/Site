@@ -2010,6 +2010,186 @@ button {
   }
 }
 
+/* ── SEO Services Block ───────────────────────────────────────────────────── */
+.seo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.seo-card {
+  background: #ffffff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.seo-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.seo-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: #e8f0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  color: var(--color-blue);
+}
+
+.seo-card-icon i {
+  width: 22px;
+  height: 22px;
+}
+
+.seo-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.seo-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.seo-why {
+  margin-top: 64px;
+}
+
+.seo-why-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin: 0 0 32px;
+  text-align: center;
+}
+
+.seo-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.seo-why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+}
+
+.seo-why-item i {
+  width: 22px;
+  height: 22px;
+  color: var(--color-teal);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.seo-why-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.seo-why-item strong {
+  font-size: 0.925rem;
+  color: var(--color-ink);
+}
+
+.seo-why-item span {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.seo-multilang {
+  margin-top: 64px;
+}
+
+.seo-multilang-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin: 0 0 32px;
+  text-align: center;
+}
+
+.seo-multilang-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.seo-lang-card {
+  background: #ffffff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: 20px 16px;
+}
+
+.seo-lang-flag {
+  font-size: 1.75rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.seo-lang-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+  .seo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .seo-why-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .seo-multilang-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .seo-grid,
+  .seo-why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-multilang-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .seo-why-title,
+  .seo-multilang-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .seo-multilang-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── About without photo ──────────────────────────────────────────────────── */
 .about-grid--no-photo {
   grid-template-columns: 1fr;
