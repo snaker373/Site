@@ -430,8 +430,7 @@
     }, { passive: true });
   }
 
-  // Free key from web3forms.com — sign up with your email to get one
-  var WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
+  var WEB3FORMS_KEY = '3ffcab5f-8a20-4624-8bf7-bbebddd8b882';
 
   function showFormSuccess() {
     var wrap = document.getElementById('contact-form-wrap');
