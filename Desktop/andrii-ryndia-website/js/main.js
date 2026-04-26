@@ -64,6 +64,7 @@
     initGallery();
     initLightbox();
     initContactForm();
+    initCookieBanner();
     optimizeImages();
   });
 
@@ -509,5 +510,39 @@
       img.decoding = 'async';
       if (index > 1 && !img.hasAttribute('loading')) img.loading = 'lazy';
     });
+  }
+
+  function initCookieBanner() {
+    var banner = document.getElementById('cookie-banner');
+    var acceptBtn = document.getElementById('cookie-accept');
+    var declineBtn = document.getElementById('cookie-decline');
+
+    if (!banner) return;
+    if (localStorage.getItem('cookie-consent')) return;
+
+    window.setTimeout(function () {
+      banner.classList.add('visible');
+    }, 1200);
+
+    function dismiss() {
+      banner.classList.remove('visible');
+      window.setTimeout(function () {
+        banner.style.display = 'none';
+      }, 400);
+    }
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', function () {
+        localStorage.setItem('cookie-consent', 'accepted');
+        dismiss();
+      });
+    }
+
+    if (declineBtn) {
+      declineBtn.addEventListener('click', function () {
+        localStorage.setItem('cookie-consent', 'declined');
+        dismiss();
+      });
+    }
   }
 })();

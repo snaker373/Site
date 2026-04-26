@@ -414,6 +414,12 @@
               <span>Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiere sie.</span>
             </label>
           </div>
+          <div class="field privacy-field">
+            <label class="privacy-label">
+              <input type="checkbox" name="consent" id="f-consent" required style="flex-shrink:0;width:1rem;height:1rem">
+              <span>Ich stimme der Verarbeitung meiner Daten zu.</span>
+            </label>
+          </div>
           <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">
             <i data-lucide="send"></i>Anfrage senden
           </button>
@@ -485,6 +491,21 @@
 <a href="https://wa.me/4915172377683" target="_blank" rel="noopener noreferrer" class="float-wa" aria-label="WhatsApp Chat öffnen">
   <i data-lucide="message-circle"></i>
 </a>
+
+<!-- ── Cookie Banner ─────────────────────────────────────────────────────── -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen">
+  <div class="cookie-icon" aria-hidden="true">🍪</div>
+  <p class="cookie-text">
+    Für ein optimales Nutzererlebnis verwenden wir Cookies. Mit dem Klick auf
+    „Alle akzeptieren" stimmen Sie der Verwendung aller Cookies zu, wie in unserer
+    <a href="datenschutz.html">Datenschutzerklärung</a> beschrieben.
+    Sie können Ihre Einwilligung jederzeit ändern oder widerrufen.
+  </p>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-btn-outline" id="cookie-decline" type="button">Ablehnen</button>
+    <button class="cookie-btn cookie-btn-primary" id="cookie-accept" type="button">Alle akzeptieren</button>
+  </div>
+</div>
 
 <!-- ── Lightbox ───────────────────────────────────────────────────────────── -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bild anzeigen">

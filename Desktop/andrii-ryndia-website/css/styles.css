@@ -2139,6 +2139,100 @@ button {
   }
 }
 
+/* ── Cookie Banner ────────────────────────────────────────────────────────── */
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  z-index: 800;
+  width: min(calc(100% - 32px), 480px);
+  background: #1c2d4a;
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 24px 24px 20px;
+  box-shadow: 0 20px 60px rgba(10, 15, 25, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.cookie-banner.visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cookie-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.cookie-text {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cookie-text a {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.cookie-btn {
+  flex: 1;
+  min-height: 42px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.cookie-btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cookie-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.cookie-btn-primary {
+  background: var(--color-blue);
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+
+.cookie-btn-primary:hover {
+  background: var(--color-blue-dark);
+}
+
+@media (max-width: 400px) {
+  .cookie-banner {
+    bottom: 12px;
+    padding: 18px 16px 16px;
+  }
+
+  .cookie-actions {
+    flex-direction: column;
+  }
+}
+
 
 .privacy-field { display: flex; justify-content: center; }
 .privacy-label { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.9rem; cursor: pointer; }
