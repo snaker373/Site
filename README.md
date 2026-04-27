@@ -9,7 +9,9 @@ It provides information about services, working area, and allows users to contac
 
 ## Screenshot
 
-![Website Screenshot](Screens/Andr Ryndia3.png)
+<p align="center">
+  <img src="Screens/Andr Ryndia3.png" width="700"/>
+</p>
 
 ## 🚀 Features
 
@@ -29,6 +31,7 @@ It provides information about services, working area, and allows users to contac
 
 - **Backend:**
   - Python (for handling form submissions)
+  - Web3Forms
 
 ## 📬 Contact
 
