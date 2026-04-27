@@ -2,10 +2,14 @@
 
 This project is a website for a furniture assembly service. It allows customers to learn about the service, view previous work, and submit requests for furniture assembly.
 
-## 🌐 About the Project
+## About the Project
 
 The website represents **Andrii Ryndia Solutions**, a furniture assembly service.  
 It provides information about services, working area, and allows users to contact the specialist directly or via a request form.
+
+## Screenshot
+
+![Website Screenshot](Screens/Andr Ryndia3.png)
 
 ## 🚀 Features
 
