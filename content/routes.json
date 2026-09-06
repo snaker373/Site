@@ -1,0 +1,121 @@
+[
+  {
+    "path": "/",
+    "title": "Möbelmontage & Küchenmontage im Saarland | Saarmontage"
+  },
+  {
+    "path": "/moebelmontage/",
+    "title": "Möbelmontage im Saarland | Saarmontage",
+    "service": "Möbelmontage"
+  },
+  {
+    "path": "/ikea-moebelmontage/",
+    "title": "IKEA Möbelmontage im Saarland | Saarmontage",
+    "service": "IKEA Möbelmontage"
+  },
+  {
+    "path": "/pax-montage/",
+    "title": "IKEA PAX Montage im Saarland | Saarmontage",
+    "service": "IKEA PAX Montage"
+  },
+  {
+    "path": "/kuechenmontage/",
+    "title": "Küchenmontage im Saarland | Saarmontage",
+    "service": "Küchenmontage"
+  },
+  {
+    "path": "/schrankmontage/",
+    "title": "Schrankmontage im Saarland | Saarmontage",
+    "service": "Schrankmontage"
+  },
+  {
+    "path": "/bettmontage/",
+    "title": "Bettmontage im Saarland | Saarmontage",
+    "service": "Bettmontage"
+  },
+  {
+    "path": "/bueromoebelmontage/",
+    "title": "Büromöbelmontage im Saarland | Saarmontage",
+    "service": "Büromöbelmontage"
+  },
+  {
+    "path": "/moebelmontage-saarbruecken/",
+    "title": "Möbelmontage Saarbrücken | IKEA & Küchen | Saarmontage",
+    "service": "Möbelmontage",
+    "city": "Saarbrücken"
+  },
+  {
+    "path": "/moebelmontage-voelklingen/",
+    "title": "Möbelmontage Völklingen | IKEA & Küchen | Saarmontage",
+    "service": "Möbelmontage",
+    "city": "Völklingen"
+  },
+  {
+    "path": "/moebelmontage-saarlouis/",
+    "title": "Möbelmontage Saarlouis | IKEA & Küchen | Saarmontage",
+    "service": "Möbelmontage",
+    "city": "Saarlouis"
+  },
+  {
+    "path": "/moebelmontage-homburg/",
+    "title": "Möbelmontage Homburg | IKEA & Küchen | Saarmontage",
+    "service": "Möbelmontage",
+    "city": "Homburg"
+  },
+  {
+    "path": "/moebelmontage-neunkirchen/",
+    "title": "Möbelmontage Neunkirchen | IKEA & Küchen | Saarmontage",
+    "service": "Möbelmontage",
+    "city": "Neunkirchen"
+  },
+  {
+    "path": "/moebelmontage-st-ingbert/",
+    "title": "Möbelmontage St. Ingbert | IKEA & Küchen | Saarmontage",
+    "service": "Möbelmontage",
+    "city": "St. Ingbert"
+  },
+  {
+    "path": "/moebelmontage-merzig/",
+    "title": "Möbelmontage Merzig | IKEA & Küchen | Saarmontage",
+    "service": "Möbelmontage",
+    "city": "Merzig"
+  },
+  {
+    "path": "/moebelmontage-zweibruecken/",
+    "title": "Möbelmontage Zweibrücken | IKEA & Küchen | Saarmontage",
+    "service": "Möbelmontage",
+    "city": "Zweibrücken"
+  },
+  {
+    "path": "/leistungen/",
+    "title": "Montageleistungen im Saarland | Saarmontage"
+  },
+  {
+    "path": "/regionen/",
+    "title": "Möbelmontage im Saarland & Zweibrücken | Servicegebiet"
+  },
+  {
+    "path": "/referenzen/",
+    "title": "Referenzen: Küchen, IKEA PAX & Möbelmontage | Saarmontage"
+  },
+  {
+    "path": "/ueber-uns/",
+    "title": "Andrii Ryndia – Ihr persönlicher Monteur | Saarmontage"
+  },
+  {
+    "path": "/kontakt/",
+    "title": "Montage anfragen – Kontakt & WhatsApp | Saarmontage"
+  },
+  {
+    "path": "/impressum/",
+    "title": "Impressum | Saarmontage"
+  },
+  {
+    "path": "/datenschutz/",
+    "title": "Datenschutzerklärung | Saarmontage"
+  },
+  {
+    "path": "/agb/",
+    "title": "AGB & Auftragsinformationen | Saarmontage"
+  }
+]

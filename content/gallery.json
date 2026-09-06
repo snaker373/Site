@@ -1,0 +1,352 @@
+[
+  {
+    "file": "gallery-hero.jpg",
+    "alt": "PAX Kleiderschrank",
+    "category": "pax"
+  },
+  {
+    "file": "g132.jpg",
+    "alt": "PAX Kleiderschrank",
+    "category": "pax"
+  },
+  {
+    "file": "gallery-1.jpg",
+    "alt": "FAMMARP Sessel",
+    "category": "moebel"
+  },
+  {
+    "file": "g117.jpg",
+    "alt": "IKEA Vitrine",
+    "category": "moebel"
+  },
+  {
+    "file": "g142.jpg",
+    "alt": "IKEA FRIHETEN Sofa",
+    "category": "moebel"
+  },
+  {
+    "file": "gallery-2.jpg",
+    "alt": "IKEA PAX Kleiderschrank",
+    "category": "pax"
+  },
+  {
+    "file": "g113.jpg",
+    "alt": "IKEA PAX Kleiderschrank",
+    "category": "pax"
+  },
+  {
+    "file": "g124.jpg",
+    "alt": "IKEA PAX Kleiderschrank",
+    "category": "pax"
+  },
+  {
+    "file": "gallery-3.jpg",
+    "alt": "IKEA HEMNES Tagesbett",
+    "category": "betten"
+  },
+  {
+    "file": "g011.jpg",
+    "alt": "IKEA Vitrine",
+    "category": "moebel"
+  },
+  {
+    "file": "g014.jpg",
+    "alt": "IKEA PAX mit Schiebetüren",
+    "category": "pax"
+  },
+  {
+    "file": "gallery-4.jpg",
+    "alt": "IKEA Schrank PAX",
+    "category": "pax"
+  },
+  {
+    "file": "g045.jpg",
+    "alt": "IKEA Kommode",
+    "category": "moebel"
+  },
+  {
+    "file": "gallery-7.jpg",
+    "alt": "IKEA ALEX Schreibtisch",
+    "category": "buero"
+  },
+  {
+    "file": "gallery-8.jpg",
+    "alt": "KALLAX Regal IKEA",
+    "category": "moebel"
+  },
+  {
+    "file": "g09.jpg",
+    "alt": "KALLAX Regal IKEA",
+    "category": "moebel"
+  },
+  {
+    "file": "g18.jpg",
+    "alt": "IKEA BESTÅ TV",
+    "category": "moebel"
+  },
+  {
+    "file": "g030.jpg",
+    "alt": "Bett",
+    "category": "betten"
+  },
+  {
+    "file": "g12.jpg",
+    "alt": "Etagenbett",
+    "category": "betten"
+  },
+  {
+    "file": "g20.jpg",
+    "alt": "IKEA PAX Kleiderschrank",
+    "category": "pax"
+  },
+  {
+    "file": "g23.jpg",
+    "alt": "IKEA GRIMO Kleiderschrank",
+    "category": "schraenke"
+  },
+  {
+    "file": "g021.jpg",
+    "alt": "IKEA Schrank PAX",
+    "category": "pax"
+  },
+  {
+    "file": "g26.jpg",
+    "alt": "LAGKAPTEN IKEA Tisch",
+    "category": "buero"
+  },
+  {
+    "file": "g29.jpg",
+    "alt": "IKEA FLISBERGET Kleiderschrank",
+    "category": "schraenke"
+  },
+  {
+    "file": "g33.jpg",
+    "alt": "IKEA HEMNES Kommode",
+    "category": "moebel"
+  },
+  {
+    "file": "g37.jpg",
+    "alt": "Küche",
+    "category": "kuechen"
+  },
+  {
+    "file": "g40.jpg",
+    "alt": "IKEA FONNES Kleiderschrank",
+    "category": "schraenke"
+  },
+  {
+    "file": "g43.jpg",
+    "alt": "Küche",
+    "category": "kuechen"
+  },
+  {
+    "file": "g49.jpg",
+    "alt": "IKEA FONNES Kleiderschrank",
+    "category": "schraenke"
+  },
+  {
+    "file": "g46.jpg",
+    "alt": "IKEA FONNES Kleiderschrank",
+    "category": "schraenke"
+  },
+  {
+    "file": "g52.jpg",
+    "alt": "IKEA PAX Kleiderschrank",
+    "category": "pax"
+  },
+  {
+    "file": "g57.jpg",
+    "alt": "IKEA FAMMARP Sofa",
+    "category": "moebel"
+  },
+  {
+    "file": "g004.jpg",
+    "alt": "IKEA HEMNES Tagesbett",
+    "category": "betten"
+  },
+  {
+    "file": "g048.jpg",
+    "alt": "IKEA MALM Kommode",
+    "category": "moebel"
+  },
+  {
+    "file": "g233.jpg",
+    "alt": "IKEA MALM Kommode",
+    "category": "moebel"
+  },
+  {
+    "file": "g052.jpg",
+    "alt": "PAX Eckkleiderschrank",
+    "category": "pax"
+  },
+  {
+    "file": "g101.jpg",
+    "alt": "IKEA Kommode",
+    "category": "moebel"
+  },
+  {
+    "file": "g056.jpg",
+    "alt": "PAX Eckkleiderschrank",
+    "category": "pax"
+  },
+  {
+    "file": "g215.jpg",
+    "alt": "Kleiderbügel",
+    "category": "moebel"
+  },
+  {
+    "file": "g106.jpg",
+    "alt": "IKEA PAX Kleiderschrank",
+    "category": "pax"
+  },
+  {
+    "file": "g127.jpg",
+    "alt": "IKEA BESTÅ Kommode",
+    "category": "moebel"
+  },
+  {
+    "file": "g138.jpg",
+    "alt": "Hängeschrank Badezimmer",
+    "category": "schraenke"
+  },
+  {
+    "file": "g146.jpg",
+    "alt": "IKEA MALM Bett",
+    "category": "betten"
+  },
+  {
+    "file": "g149.jpg",
+    "alt": "IKEA BRIMNES Kleiderschrank",
+    "category": "schraenke"
+  },
+  {
+    "file": "g152.jpg",
+    "alt": "Wohnzimmer Kommode",
+    "category": "moebel"
+  },
+  {
+    "file": "g155.jpg",
+    "alt": "IKEA BESTÅ TV-Schrank",
+    "category": "moebel"
+  },
+  {
+    "file": "g159.jpg",
+    "alt": "IKEA MALM Bettgestell",
+    "category": "betten"
+  },
+  {
+    "file": "g210.jpg",
+    "alt": "IKEA KALLAX Regal",
+    "category": "moebel"
+  },
+  {
+    "file": "g212.jpg",
+    "alt": "Tisch und Kleiderschrank",
+    "category": "moebel"
+  },
+  {
+    "file": "g219.jpg",
+    "alt": "OSKARSHAMN Sessel",
+    "category": "moebel"
+  },
+  {
+    "file": "g222.jpg",
+    "alt": "IKEA Tisch",
+    "category": "moebel"
+  },
+  {
+    "file": "g226.jpg",
+    "alt": "KALLAX Regal IKEA",
+    "category": "moebel"
+  },
+  {
+    "file": "g228.jpg",
+    "alt": "IKEA BRIMNES TV-Regal",
+    "category": "moebel"
+  },
+  {
+    "file": "g237.jpg",
+    "alt": "IKEA TV-Regal",
+    "category": "moebel"
+  },
+  {
+    "file": "g244.jpg",
+    "alt": "IKEA BILLY Schrank",
+    "category": "schraenke"
+  },
+  {
+    "file": "g248.jpg",
+    "alt": "IKEA MITTZON Schreibtisch",
+    "category": "buero"
+  },
+  {
+    "file": "g250.jpg",
+    "alt": "IKEA PAX mit Schiebetüren",
+    "category": "pax"
+  },
+  {
+    "file": "g254.jpg",
+    "alt": "IKEA PAX mit Schiebetüren",
+    "category": "pax"
+  },
+  {
+    "file": "photo1 (12).jpg",
+    "alt": "IKEA PAX mit Schiebetüren",
+    "category": "pax"
+  },
+  {
+    "file": "g444.jpg",
+    "alt": "IKEA BESTÅ Schrank",
+    "category": "schraenke"
+  },
+  {
+    "file": "photo1 (13).jpg",
+    "alt": "IKEA BESTÅ Kommode",
+    "category": "moebel"
+  },
+  {
+    "file": "photo1 (2).jpg",
+    "alt": "IKEA SLÄKT Tagesbett",
+    "category": "betten"
+  },
+  {
+    "file": "photo333.jpg",
+    "alt": "IKEA SLÄKT Tagesbett",
+    "category": "betten"
+  },
+  {
+    "file": "photo1 (3).jpg",
+    "alt": "IKEA LINNMON Schreibtisch",
+    "category": "buero"
+  },
+  {
+    "file": "photo1 (4).jpg",
+    "alt": "IKEA LINNMON Schreibtisch",
+    "category": "buero"
+  },
+  {
+    "file": "photo1 (6).jpg",
+    "alt": "IKEA Schreibtisch mit ALEX",
+    "category": "buero"
+  },
+  {
+    "file": "photo1 (7).jpg",
+    "alt": "IKEA Schreibtisch mit ALEX",
+    "category": "buero"
+  },
+  {
+    "file": "photo1 (8).jpg",
+    "alt": "IKEA Arbeitsplatz-Setup",
+    "category": "buero"
+  },
+  {
+    "file": "photo1 (9).jpg",
+    "alt": "IKEA Doppelschreibtisch",
+    "category": "buero"
+  },
+  {
+    "file": "photo1 (5).jpg",
+    "alt": "IKEA LACK Wandregale",
+    "category": "moebel"
+  }
+]
