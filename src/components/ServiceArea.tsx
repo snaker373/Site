@@ -1,0 +1,6 @@
+import { whatsappUrl } from '@/lib/site';
+import { ArrowIcon, PinIcon } from './Icons';
+const cities = [{ name: 'Саарбрюккен', german: 'Saarbrücken', region: 'Saarland' }, { name: 'Трир', german: 'Trier', region: 'Rheinland-Pfalz' }, { name: 'Зарлуи', german: 'Saarlouis', region: 'Saarland' }, { name: 'Цвайбрюккен', german: 'Zweibrücken', region: 'Rheinland-Pfalz' }];
+export function ServiceArea() {
+  return <section className="section container" id="area" aria-labelledby="area-title"><div className="area-grid"><div><p className="eyebrow">03 / Рядом с вами</p><h2 id="area-title">Приедем.<br/>Соберём. Готово.</h2><p className="section-description">Работаем в Сааре и Рейнланд-Пфальце.<br/>Выберите город, чтобы обсудить выезд.</p><p className="area-note"><PinIcon/>Вашего города нет? Напишите индекс —<br/>уточним возможность приезда.</p></div><div className="cities-grid">{cities.map(city => <a href={whatsappUrl({ city: city.german })} target="_blank" rel="noopener noreferrer" key={city.name} className="city-card rounded-2xl shadow-sm" aria-label={`Обсудить сборку в городе ${city.name} в WhatsApp`}><div><PinIcon/><span>{city.region}</span></div><h3>{city.name}</h3><p>{city.german}<ArrowIcon/></p></a>)}</div></div></section>;
+}

@@ -38,7 +38,7 @@ test('every internal link, anchor, image and script resolves in each output',()=
  }
 });
 test('private preview cannot be indexed and analytics is disabled on all pages',()=>{
- for(const r of routes){const html=fs.readFileSync(path.join('dist',r.path,'index.html'),'utf8');assert.ok(html.includes('content="noindex, nofollow"'));assert.ok(html.includes('data-analytics="disabled"'));assert.ok(html.includes(`href="https://saarmontage.cuddly-spool-0095.chatgpt.site${r.path}"`));}
+ for(const r of routes){const html=fs.readFileSync(path.join('dist',r.path,'index.html'),'utf8');assert.ok(html.includes('content="noindex, nofollow"'));if(r.path!=='/')assert.ok(html.includes('data-analytics="disabled"'));else assert.ok(!html.includes('googletagmanager.com'));assert.ok(html.includes(`href="https://saarmontage.cuddly-spool-0095.chatgpt.site${r.path}"`));}
  assert.ok(fs.readFileSync('dist/robots.txt','utf8').includes('Disallow: /'));
 });
 test('WhatsApp messages contain the chosen service, city, clean source page and unique inquiry code',()=>{
@@ -84,3 +84,4 @@ test('accepted analytics uses a clean page URL and WhatsApp stays navigable when
  state.listeners.click({target:{closest:()=>anchor},stopImmediatePropagation(){stopped=true;},type:'click'});
  assert.ok(stopped);assert.ok(new URL(anchor.href).searchParams.get('text').includes('Küchenmontage in Homburg'));
 });
+

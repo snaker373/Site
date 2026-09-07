@@ -1,4 +1,8 @@
 node_modules/
+.next/
+out/
+public/
+*.tsbuildinfo
 dist/
 .publish-repo/
 .site-upload/
