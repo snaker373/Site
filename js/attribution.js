@@ -3,7 +3,9 @@
   const services = {
     moebelmontage: 'Möbelmontage', 'ikea-moebelmontage': 'IKEA Möbelmontage',
     'pax-montage': 'IKEA PAX Montage', kuechenmontage: 'Küchenmontage',
-    schrankmontage: 'Schrankmontage', bettmontage: 'Bettmontage', bueromoebelmontage: 'Büromöbelmontage'
+    schrankmontage: 'Schrankmontage', bettmontage: 'Bettmontage', bueromoebelmontage: 'Büromöbelmontage',
+    demontage: 'Demontage & Wiederaufbau', kompletteinrichtung: 'Kompletteinrichtung',
+    gewerbekunden: 'Marktservice für Geschäftskunden', sonstiges: 'Sonstiges'
   };
   const cities = ['Saarbrücken','Völklingen','Saarlouis','Homburg','Neunkirchen','St. Ingbert','Merzig','Zweibrücken'];
   function serviceKey(value) { return Object.keys(services).find(k => k === value || services[k] === value) || 'moebelmontage'; }

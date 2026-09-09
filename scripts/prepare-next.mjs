@@ -1,7 +1,13 @@
 import { cpSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
+
+// Create responsive WebP variants before any page references them.
+execFileSync(process.execPath, ['scripts/optimize-images.mjs'], { stdio: 'inherit' });
 
 // Existing German routes remain standalone pages during the incremental migration.
+// Always regenerate them so content and shared styles cannot fall behind the homepage.
+execFileSync(process.execPath, ['scripts/build.mjs'], { stdio: 'inherit' });
 const isPublic = process.env.SITE_PUBLIC === 'true';
 const origin = isPublic ? 'https://saarmontage.de' : 'https://saarmontage.cuddly-spool-0095.chatgpt.site';
 mkdirSync('public', { recursive: true });

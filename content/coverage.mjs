@@ -1,0 +1,4 @@
+export function coverageMap({img}) {
+ const dots=[['Saarbrücken','saarbruecken',78,35],['Perl',null,68,18],['Trier',null,48,22],['Saarlouis','saarlouis',72,30],['Zweibrücken','zweibruecken',70,55],['Homburg','homburg',75,48],['Völklingen','voelklingen',80,28],['Merzig','merzig',65,25]];
+ return `<div class="coverage-map-frame"><div class="map-heading"><span>Persönlich für Sie unterwegs</span><strong>Saarland & Rheinland-Pfalz</strong></div>${img('coverage-map.png','Schematische Karte von Saarland und Rheinland-Pfalz')}<div class="map-points" aria-label="Montageorte">${dots.map(([name,slug,top,left],i)=>`<a class="map-dot" href="${slug?'/moebelmontage-'+slug+'/':'/kontakt/'}" style="top:${top}%;left:${left}%;--pulse-delay:${i*.18}s" data-city="${name}" aria-label="Montage in ${name} anfragen"><span class="map-tooltip">${name}</span></a>`).join('')}</div><div class="map-legend"><span aria-hidden="true"></span>Mobiler Montageservice</div></div>`;
+}

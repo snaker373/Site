@@ -4,7 +4,7 @@
   if(!A) return;
   const page=A.cleanPath(body.dataset.page), measurement=body.dataset.analytics;
   const analyticsEnabled=/^G-[A-Z0-9]+$/.test(measurement) && ['saarmontage.de','www.saarmontage.de','andrii-ryndia.de','www.andrii-ryndia.de'].includes(location.hostname);
-  const consentKey='saarmontage-consent-v2', sessionKey='saarmontage-entry-v1';
+  const consentKey='saarmontage-consent-v3', sessionKey='saarmontage-entry-v1';
   let consent=null, analyticsStarted=false, entry={page,...A.campaign(location.search)};
   function storageRead(store,key){try{return JSON.parse(store.getItem(key));}catch{return null;}}
   function getStore(kind){try{return window[kind];}catch{return {getItem(){},setItem(){},removeItem(){}};}}
@@ -43,13 +43,18 @@
     document.getElementById('saar-analytics')?.remove();
   }
   const panel=document.getElementById('cookie-panel');
-  if(panel) panel.hidden=Boolean(consent)||!analyticsEnabled;
+  if(panel) panel.hidden=Boolean(consent);
   document.querySelectorAll('[data-cookie-settings]').forEach(button=>button.addEventListener('click',()=>{panel.hidden=false;panel.querySelector('button').focus();}));
   document.querySelectorAll('[data-consent]').forEach(button=>button.addEventListener('click',()=>{
     const value=button.dataset.consent;saveConsent(value);panel.hidden=true;
     if(value==='accepted')startAnalytics();else{const reload=analyticsStarted;clearAnalytics();if(reload)location.reload();}
   }));
   if(consent==='accepted')startAnalytics();
+  document.addEventListener('saar-contact',event=>{
+    const detail=event.detail;
+    if(!detail || !['whatsapp_click','generate_lead'].includes(detail.event))return;
+    try{track(detail.event,detail.service,detail.city,'homepage');}catch{}
+  });
   // Capture before third-party listeners. Keep message contents out of automatic outbound-click events.
   function onWhatsApp(event){
     const anchor=event.target.closest?.('[data-whatsapp]');if(!anchor || (event.type==='auxclick'&&event.button!==1))return;
@@ -64,6 +69,7 @@
   function closeMenu(){nav?.classList.remove('open');toggle?.setAttribute('aria-expanded','false');toggle?.setAttribute('aria-label','Menü öffnen');}
   toggle?.addEventListener('click',()=>{const open=!nav.classList.contains('open');nav.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen');});
   nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+  window.addEventListener('resize',()=>{if(window.innerWidth>960)closeMenu();});
   document.addEventListener('click',event=>{document.querySelectorAll('.dropdown[open]').forEach(d=>{if(!d.contains(event.target))d.open=false;});if(nav?.classList.contains('open')&&!event.target.closest('.header'))closeMenu();});
   document.querySelectorAll('.dropdown').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)document.querySelectorAll('.dropdown').forEach(other=>{if(other!==d)other.open=false;});}));
   document.addEventListener('keydown',event=>{if(event.key==='Escape'){if(nav?.classList.contains('open')){closeMenu();toggle.focus();}document.querySelectorAll('.dropdown[open]').forEach(d=>{d.open=false;d.querySelector('summary').focus();});}});
@@ -89,9 +95,13 @@
   const form=document.getElementById('contact-form');
   if(form){
     const q=new URLSearchParams(location.search),f=form.elements,status=document.getElementById('form-status');
-    if(Object.hasOwn(A.services,q.get('service')))f.service.value=q.get('service');
+    const requestedService=q.get('service');
+    if(requestedService==='pax-montage')f.service.value='ikea-moebelmontage';
+    else if(Object.hasOwn(A.services,requestedService))f.service.value=requestedService;
     if(A.cities.includes(q.get('city')))f.city.value=q.get('city');
-    const updateContext=()=>{body.dataset.service=A.services[f.service.value];body.dataset.city=f.city.value;document.querySelectorAll('[data-whatsapp]').forEach(a=>{a.dataset.service=body.dataset.service;a.dataset.city=body.dataset.city;});};updateContext();f.service.addEventListener('change',updateContext);f.city.addEventListener('input',updateContext);
+    const otherWrap=form.querySelector('[data-other-service]');
+    const updateOther=()=>{const active=f.service.value==='sonstiges';otherWrap.hidden=!active;f.otherService.required=active;if(!active)f.otherService.value='';};
+    const updateContext=()=>{updateOther();body.dataset.service=A.services[f.service.value];body.dataset.city=f.city.value;document.querySelectorAll('[data-whatsapp]').forEach(a=>{a.dataset.service=body.dataset.service;a.dataset.city=body.dataset.city;});};updateContext();f.service.addEventListener('change',()=>{updateContext();if(f.service.value==='sonstiges')f.otherService.focus();});f.city.addEventListener('input',updateContext);
     [f.phone,f.email].forEach(input=>input.addEventListener('input',()=>f.phone.setCustomValidity('')));
     form.querySelector('[value="whatsapp"]').addEventListener('click',()=>f.phone.setCustomValidity(''));
     let pending=false;
@@ -100,7 +110,9 @@
       const channel=event.submitter?.value||'whatsapp';f.phone.setCustomValidity('');
       if(channel==='email'&&!f.phone.value.trim()&&!f.email.value.trim())f.phone.setCustomValidity('Bitte geben Sie eine Telefonnummer oder E-Mail-Adresse an.');
       if(!form.reportValidity()||f.botcheck.value)return;
-      const data={service:f.service.value,city:f.city.value.trim(),name:f.name.value.trim(),phone:f.phone.value.trim(),email:f.email.value.trim(),details:f.message.value.trim(),page};
+      const otherService=f.service.value==='sonstiges'?f.otherService.value.trim():'';
+      const details=(otherService?'Gewünschte Leistung: '+otherService+'\n\n':'')+f.message.value.trim();
+      const data={service:f.service.value,city:f.city.value.trim(),name:f.name.value.trim(),phone:f.phone.value.trim(),email:f.email.value.trim(),details,page};
       if(!data.name||!data.city||!data.details){status.className='error';status.textContent='Bitte füllen Sie Name, Montageort und Projektbeschreibung aus.';return;}
       status.className='';
       if(channel==='whatsapp'){
@@ -113,7 +125,8 @@
       pending=true;const buttons=[...form.querySelectorAll('[type="submit"]')];buttons.forEach(b=>b.disabled=true);status.textContent='Ihre Anfrage wird gesendet …';
       const controller=new AbortController(), timeout=setTimeout(()=>controller.abort(),15000);
       try{
-        const payload={access_key:'3ffcab5f-8a20-4624-8bf7-bbebddd8b882',from_name:'Saarmontage Website',subject:'Montageanfrage – '+A.services[data.service],name:data.name,phone:data.phone,service:A.services[data.service],city:data.city,message:A.message(data),botcheck:''};if(data.email)payload.email=data.email;
+        const serviceLabel=A.services[data.service]+(otherService?' – '+otherService:'');
+        const payload={access_key:'3ffcab5f-8a20-4624-8bf7-bbebddd8b882',from_name:'Saarmontage Website',subject:'Montageanfrage – '+serviceLabel,name:data.name,phone:data.phone,service:serviceLabel,city:data.city,message:A.message(data),botcheck:''};if(data.email)payload.email=data.email;
         const response=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:controller.signal});
         const result=await response.json();if(!response.ok||!result.success)throw new Error('submission failed');
         status.textContent='Vielen Dank! Ihre Anfrage wurde übermittelt. Andrii meldet sich bei Ihnen.';

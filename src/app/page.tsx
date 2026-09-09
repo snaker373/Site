@@ -5,4 +5,6 @@ import { Portfolio } from '@/components/Portfolio';
 import { ServiceArea } from '@/components/ServiceArea';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
-export default function Home() { return <><Header/><main id="main"><Hero/><Transformation/><Portfolio/><ServiceArea/><Contact/></main><Footer/></>; }
+import { Services, HowItWorks, About, FAQ } from '@/components/Services';
+import { Reviews } from '@/components/Reviews';
+export default function Home(){return <><Header/><main id="main"><Hero/><Services/><HowItWorks/><Transformation/><Portfolio/><ServiceArea/><About/><Reviews/><FAQ/><Contact/></main><Footer/></>;}

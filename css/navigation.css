@@ -1,0 +1,88 @@
+/* One header layout for the React homepage and generated service pages. */
+.sm-header {
+  position: sticky; top: 0; z-index: 40;
+  background: #fffffff5; border-bottom: 1px solid #dde5f0;
+  backdrop-filter: blur(18px); color: #172c49;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  line-height: 1.4;
+}
+.sm-header .sm-header-inner {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 20px; height: 90px; min-height: 0;
+  width: min(1200px, calc(100% - 64px)); margin: 0 auto;
+}
+.sm-header .brand {
+  display: flex; flex-direction: row; align-items: center; justify-content: center;
+  width: 208px; height: 90px; margin: 0; overflow: hidden;
+}
+.sm-header .brand > img {
+  display: block; width: 208px; height: 139px; max-width: none;
+  flex: none; object-fit: contain;
+}
+.sm-header .sm-nav {
+  position: static; display: flex; align-items: center; gap: 2px;
+  width: auto; max-height: none; padding: 5px; margin: 0;
+  border: 1px solid #e2e8f1; border-radius: 999px;
+  background: #f8faff; box-shadow: none;
+}
+.sm-header .sm-nav > a {
+  display: flex; align-items: center; min-height: 42px;
+  padding: 10px 12px; margin: 0; border: 0; border-radius: 999px;
+  font-size: 14px; font-weight: 650; line-height: 1.4;
+  color: #485c77; white-space: nowrap; text-decoration: none;
+}
+.sm-header .sm-nav > a:hover,
+.sm-header .sm-nav > a[aria-current] { background: #eaf1fd; color: #1d4ed8; }
+.sm-header .sm-header-actions { display: flex; align-items: center; gap: 8px; justify-self: end; }
+.sm-header .sm-header-cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  width: auto; height: 44px; min-height: 44px; padding: 10px 15px;
+  border: 0; border-radius: 10px; background: #128b53; color: #fff;
+  font-size: 14px; font-weight: 700; line-height: 1.4;
+  box-shadow: 0 6px 18px #128b5318;
+}
+.sm-header .sm-header-cta:hover { background: #087445; }
+.sm-header .sm-header-cta > svg { display: block; width: 20px; height: 20px; flex: none; }
+.sm-header .sm-header-cta .button-arrow { display: none; }
+.sm-header .sm-menu-toggle {
+  display: none; align-items: center; justify-content: center;
+  width: 44px; height: 44px; padding: 0; margin: 0;
+  border: 1px solid #dde5f0; border-radius: 9px; background: #fff;
+  color: #172c49; cursor: pointer;
+}
+.sm-menu-bars { position: relative; display: block; width: 20px; height: 16px; }
+.sm-menu-bars i { position: absolute; left: 0; width: 20px; height: 2px; background: currentColor; border-radius: 2px; }
+.sm-menu-bars i:nth-child(1) { top: 0; }
+.sm-menu-bars i:nth-child(2) { top: 7px; }
+.sm-menu-bars i:nth-child(3) { top: 14px; }
+[aria-expanded="true"] .sm-menu-bars i:nth-child(1) { top: 7px; transform: rotate(45deg); }
+[aria-expanded="true"] .sm-menu-bars i:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] .sm-menu-bars i:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+.sm-header a:focus-visible, .sm-header button:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+@media (max-width: 1100px) and (min-width: 961px) {
+  .sm-header .sm-header-inner { width: calc(100% - 48px); gap: 12px; }
+  .sm-header .brand { width: 180px; }
+  .sm-header .brand > img { width: 180px; height: 120px; }
+  .sm-header .sm-nav > a { padding-inline: 9px; }
+}
+@media (max-width: 960px) {
+  .sm-header .sm-header-inner { grid-template-columns: 1fr auto; height: 72px; width: calc(100% - 32px); gap: 8px; }
+  .sm-header .brand { width: 165px; height: 72px; }
+  .sm-header .brand > img { width: 165px; height: 110px; }
+  .sm-header .sm-menu-toggle { display: flex; }
+  .sm-header .sm-nav { display: none; }
+  .sm-header .sm-nav.open, .sm-header .sm-nav.is-open {
+    display: grid; position: absolute; top: 71px; left: 0; right: 0;
+    grid-column: 1 / -1; width: 100%; max-height: calc(100dvh - 72px);
+    overflow-y: auto; overscroll-behavior: contain;
+    padding: 12px 16px max(22px, env(safe-area-inset-bottom)); gap: 4px;
+    border: 0; border-bottom: 1px solid #dde5f0; border-radius: 0;
+    background: #fff; box-shadow: 0 15px 25px #172c4912;
+  }
+  .sm-header .sm-nav > a { min-height: 48px; padding: 12px 14px; border-radius: 9px; font-size: 16px; }
+}
+@media (max-width: 480px) {
+  .sm-header .sm-header-cta { width: 44px; padding: 0; border-radius: 50%; font-size: 0; gap: 0; }
+  .sm-header .sm-header-cta > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .sm-header .sm-header-cta > svg { width: 21px; height: 21px; }
+}

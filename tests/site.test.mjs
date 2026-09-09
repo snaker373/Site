@@ -10,7 +10,7 @@ vm.runInContext(fs.readFileSync('js/attribution.js','utf8'),context);
 const A=context.SaarAttribution;
 test('all requested routes exist with unique titles, canonical, H1 and valid structured data',()=>{
  const titles=new Set();
- assert.equal(routes.length,24);
+ assert.equal(routes.length,25);
  for(const r of routes){
   const html=fs.readFileSync(path.join('.',r.path,'index.html'),'utf8');
   assert.equal((html.match(/<h1(?:\s|>)/g)||[]).length,1,r.path);
@@ -63,8 +63,30 @@ test('kitchen photos and office photos are kept in their matching sections',()=>
  assert.ok(gallery.filter(g=>g.category==='buero').every(g=>!/Kommode|Bett/.test(g.alt)));
  const html=fs.readFileSync('kuechenmontage/index.html','utf8');const pictures=[...html.matchAll(/data-photo="([^"]+)"/g)].map(m=>m[1]);assert.deepEqual(pictures,['/assets/g37.jpg','/assets/g43.jpg']);
 });
+test('business partner page contains commercial services, supplied work photos and a tracked enquiry',()=>{
+ const page=fs.readFileSync('gewerbekunden/index.html','utf8');
+ for(const text of ['Stände & Präsentationsflächen','Warensortierung','Umbauten & Neueinrichtung','BAUHAUS','Kooperation anfragen']) assert.ok(page.includes(text),text);
+ for(let i=1;i<=10;i++)assert.ok(page.includes(`/assets/partner-baumarkt-${String(i).padStart(2,'0')}.png`),`partner photo ${i}`);
+ assert.ok(page.includes('data-service="Marktservice für Geschäftskunden"'));
+ const url=new URL(A.whatsappUrl({service:'gewerbekunden',page:'/gewerbekunden/',id:'SM-B2BTEST'}));
+ const message=url.searchParams.get('text');
+ assert.ok(message.includes('Marktservice für Geschäftskunden'));
+ assert.ok(message.includes('Quelle: saarmontage.de/gewerbekunden/'));
+});
+test('all generated pages use the new business email and show cookie controls on first visit',()=>{
+ for(const route of routes){const page=fs.readFileSync(path.join('.',route.path,'index.html'),'utf8');assert.ok(page.includes('info@saarmontage.de'),route.path);assert.ok(!page.includes('7007779@gmail.com'),route.path);assert.ok(page.includes('id="cookie-panel"'),route.path);assert.ok(!page.match(/id="cookie-panel"[^>]*hidden/),route.path);}
+});
+test('contact service choice combines PAX and provides a conditional Sonstiges field',()=>{
+ const page=fs.readFileSync('kontakt/index.html','utf8'),script=fs.readFileSync('js/site.js','utf8');
+ for(const value of ['ikea-moebelmontage','demontage','kompletteinrichtung','gewerbekunden','sonstiges'])assert.ok(page.includes(`value="${value}"`),value);
+ assert.ok(page.includes('IKEA Möbelmontage (inkl. PAX)'));
+ assert.ok(!page.includes('value="pax-montage"'));
+ assert.ok(page.includes('data-other-service hidden'));
+ assert.ok(script.includes("f.service.value==='sonstiges'"));
+ assert.ok(script.includes('f.otherService.required=active'));
+});
 function simulateAnalytics({consent,blockedStorage=false,preview=false}={}){
- const scripts=[],listeners={},cookies=[],store=new Map(consent?[['saarmontage-consent-v2',JSON.stringify({value:consent,at:Date.now()})]]:[]);
+ const scripts=[],listeners={},cookies=[],store=new Map(consent?[['saarmontage-consent-v3',JSON.stringify({value:consent,at:Date.now()})]]:[]);
  const storage={getItem(k){if(blockedStorage)throw new Error('blocked');return store.get(k)||null;},setItem(k,v){if(blockedStorage)throw new Error('blocked');store.set(k,v);},removeItem(k){store.delete(k);}};
  const panel={hidden:false,querySelector(){return {focus(){}};}};
  const document={body:{dataset:{page:'/kuechenmontage/',service:'Küchenmontage',city:'',analytics:preview?'disabled':'G-0XY9QDMYG3'}},title:'Küche',referrer:'https://google.com/search?private=secret',head:{append(s){scripts.push(s);}},createElement(){return {};},getElementById(id){return id==='cookie-panel'?panel:null;},querySelector(){return null;},querySelectorAll(selector){return selector==='[data-consent]'?['accepted','denied'].map(value=>({dataset:{consent:value},addEventListener(t,fn){cookies.push({value,fn});}})):[];},addEventListener(){},cookie:''};

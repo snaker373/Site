@@ -1,0 +1,7 @@
+[
+  { "href": "/leistungen/", "label": "Leistungen" },
+  { "href": "/referenzen/", "label": "Referenzen" },
+  { "href": "/gewerbekunden/", "label": "Für Partner" },
+  { "href": "/ueber-uns/", "label": "Über mich" },
+  { "href": "/kontakt/", "label": "Kontakt" }
+]
