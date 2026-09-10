@@ -6,15 +6,15 @@ export const site = {
   responseTime: 'Persönliche Rückmeldung zu Ihrer Anfrage',
 };
 
-export type Inquiry = { name?: string; city?: string; details?: string; service?: string; code?: string };
-export function whatsappUrl({ name, city, details, service = 'Möbelmontage', code }: Inquiry = {}) {
+export type Inquiry = { name?: string; city?: string; details?: string; service?: string; code?: string; page?: string };
+export function whatsappUrl({ name, city, details, service = 'Möbelmontage', code, page }: Inquiry = {}) {
   const message = [
     `Guten Tag, ich möchte ${service} bei Ihnen anfragen.`,
     name?.trim() && `Mein Name: ${name.trim()}`,
     city?.trim() && `Montageort: ${city.trim()}`,
     details?.trim() && `Mein Projekt: ${details.trim()}`,
     'Können Sie mir ein Angebot und einen möglichen Termin nennen?',
-    'Quelle: saarmontage.de/',
+    `Quelle: saarmontage.de${page?.startsWith('/')?page:'/'}`,
     code && `Anfragecode: ${code}`,
   ].filter(Boolean).join('\n');
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;

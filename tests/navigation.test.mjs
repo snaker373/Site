@@ -7,7 +7,7 @@ const routes=JSON.parse(fs.readFileSync('content/routes.json','utf8'));
 const expected=JSON.parse(fs.readFileSync('content/navigation.json','utf8'));
 
 test('all routes present the same five direct navigation destinations',()=>{
- for(const base of ['.','dist'])for(const route of routes){
+ for(const base of ['dist'])for(const route of routes){
   const html=fs.readFileSync(path.join(base,route.path,'index.html'),'utf8');
   const header=html.match(/<header\b[\s\S]*?<\/header>/)?.[0];
   assert.ok(header,route.path);
@@ -26,6 +26,7 @@ test('internal pages highlight their current section and load the shared header 
   const html=fs.readFileSync(path.join('dist',route,'index.html'),'utf8');
   const header=html.match(/<header\b[\s\S]*?<\/header>/)[0];
   assert.equal((header.match(/aria-current=/g)||[]).length,1,route);
-  assert.ok(html.includes('/css/navigation.css'),route);
+  assert.ok(html.includes('/_next/static/css/'),route);
+  assert.ok(!html.includes('/css/site.css'),route);
  }
 });

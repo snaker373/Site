@@ -1,4 +1,4 @@
 import { cpSync } from 'node:fs';
-// Keep the existing Sites output contract. Next's export supplies the new homepage.
+// Keep the Sites output contract. Every public route now comes from Next.js.
 cpSync('out', 'dist', { recursive: true });
-console.log('Next.js homepage and preserved routes exported to dist/');
+console.log('Unified Next.js site exported to dist/');
