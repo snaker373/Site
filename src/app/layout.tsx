@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   robots: isPublic ? { index: true, follow: true } : { index: false, follow: false },
   icons: { icon: '/favicon.svg' },
-  openGraph: { title: 'Andrii Ryndia Solutions – Möbelmontage im Saarland', description: 'Von den Kartons bis zum fertigen Möbel. Persönliche Montage im Saarland.', url: '/', locale: 'de_DE', type: 'website' },
+  openGraph: { title: 'Andrii Ryndia Solutions · Saarmontage', description: 'Von den Kartons bis zum fertigen Möbel. Persönliche Montage im Saarland.', url: '/', locale: 'de_DE', type: 'website' },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="de"><body data-page="/" data-service="Möbelmontage" data-city="" data-analytics={isPublic?'G-0XY9QDMYG3':'disabled'}><a href="#main" className="skip-link">Zum Inhalt springen</a>{children}<Consent/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({'@context':'https://schema.org','@type':'LocalBusiness',name:'Saarmontage – Andrii Ryndia',url:origin,telephone:'+4915172377683',email:'info@saarmontage.de',areaServed:[{'@type':'AdministrativeArea',name:'Saarland'},{'@type':'AdministrativeArea',name:'Rheinland-Pfalz'}]})}}/></body></html>;
+  return <html lang="de"><body data-page="/" data-service="Möbelmontage" data-city="" data-analytics={isPublic?'G-0XY9QDMYG3':'disabled'}><a href="#main" className="skip-link">Zum Inhalt springen</a>{children}<Consent/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({'@context':'https://schema.org','@type':'LocalBusiness',name:'Andrii Ryndia Solutions',alternateName:'Saarmontage',url:origin,telephone:'+4915172377683',email:'info@saarmontage.de',areaServed:[{'@type':'AdministrativeArea',name:'Saarland'},{'@type':'AdministrativeArea',name:'Rheinland-Pfalz'}]})}}/></body></html>;
 }
 

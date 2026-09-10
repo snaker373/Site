@@ -13,10 +13,10 @@
 }
 .sm-header .brand {
   display: flex; flex-direction: row; align-items: center; justify-content: center;
-  width: 208px; height: 90px; margin: 0; overflow: hidden;
+  width: 238px; height: 90px; margin: 0; overflow: hidden;
 }
 .sm-header .brand > img {
-  display: block; width: 208px; height: 139px; max-width: none;
+  display: block; width: 238px; height: 159px; max-width: none;
   flex: none; object-fit: contain;
 }
 .sm-header .sm-nav {
@@ -61,14 +61,14 @@
 .sm-header a:focus-visible, .sm-header button:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
 @media (max-width: 1100px) and (min-width: 961px) {
   .sm-header .sm-header-inner { width: calc(100% - 48px); gap: 12px; }
-  .sm-header .brand { width: 180px; }
-  .sm-header .brand > img { width: 180px; height: 120px; }
+  .sm-header .brand { width: 200px; }
+  .sm-header .brand > img { width: 200px; height: 133px; }
   .sm-header .sm-nav > a { padding-inline: 9px; }
 }
 @media (max-width: 960px) {
   .sm-header .sm-header-inner { grid-template-columns: 1fr auto; height: 72px; width: calc(100% - 32px); gap: 8px; }
-  .sm-header .brand { width: 165px; height: 72px; }
-  .sm-header .brand > img { width: 165px; height: 110px; }
+  .sm-header .brand { width: min(210px, calc(100vw - 136px)); height: 72px; justify-content: flex-start; }
+  .sm-header .brand > img { width: 100%; height: auto; min-height: 118px; }
   .sm-header .sm-menu-toggle { display: flex; }
   .sm-header .sm-nav { display: none; }
   .sm-header .sm-nav.open, .sm-header .sm-nav.is-open {
@@ -85,4 +85,11 @@
   .sm-header .sm-header-cta { width: 44px; padding: 0; border-radius: 50%; font-size: 0; gap: 0; }
   .sm-header .sm-header-cta > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .sm-header .sm-header-cta > svg { width: 21px; height: 21px; }
+}
+
+/* Keep fixed controls away from photos, links and form actions on small screens. */
+@media (max-width: 760px) {
+  .mobile-contact { display: none !important; }
+  .footer { padding-bottom: 32px; }
+  .cookie-panel { bottom: max(16px, env(safe-area-inset-bottom)); }
 }

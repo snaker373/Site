@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import navigation from '../../content/navigation.json';
 import { WhatsAppButton } from './WhatsAppButton';
-export function Brand() { return <a href="/" aria-label="Andrii Ryndia Solutions – Startseite" className="brand"><img src="/assets/logo-web.png" alt="Andrii Ryndia Solutions" width="420" height="280"/></a>; }
+export function Brand() { return <a href="/" aria-label="Andrii Ryndia Solutions und Saarmontage – Startseite" className="brand"><img src="/assets/logo-web.png" alt="Andrii Ryndia Solutions – Saarmontage" width="420" height="280"/></a>; }
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);

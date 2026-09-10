@@ -55,8 +55,11 @@ test('homepage contains the same optional consent controls and valid business me
 });
 
 test('homepage shows the current Google rating and links to its source',()=>{
- const page=html();
- for(const text of ['5,0','1 Google-Bewertung','1 Bewertung ansehen','Hanna Kryventsova','https://share.google/q1Q1BTskvtG07SKmX']) assert.ok(page.includes(text),text);
+ const page=html().replaceAll('<!-- -->','');
+ for(const text of ['5,0','3 Google-Bewertungen','3 Bewertungen ansehen','Anaso M.','Yevhenii Turchak','Hanna Kryventsova','https://share.google/q1Q1BTskvtG07SKmX']) assert.ok(page.includes(text),text);
+ assert.ok(!page.includes('floating-whatsapp'));
+ assert.ok(!page.includes('In drei Schritten fertig montiert.'));
+ assert.ok(!page.includes('Ihre Fragen.<br/>Klare Antworten.'));
 });
 
 test('homepage inquiry combines PAX with IKEA and reveals a custom service field',()=>{
