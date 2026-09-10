@@ -34,7 +34,7 @@ export const projects: { image: string; title: string; category: Category; detai
 export const serviceItems = [
   {slug:'kuechenmontage',name:'Küchenmontage',image:'g43.jpg',text:'Vom Küchenplan bis zu sauber ausgerichteten Fronten.',label:'Für das Herz Ihres Zuhauses'},
   {slug:'pax-montage',name:'IKEA PAX Montage',image:'g132.jpg',text:'Korpusse, Innenausstattung und Türen, die zusammenpassen.',label:'Ordnung bis ins Detail'},
-  {slug:'moebelmontage',name:'Möbelmontage',image:'g155.jpg',text:'Regale, Kommoden und Wohnmöbel fachgerecht aufbauen.',label:'Für jeden Raum'},
+  {slug:'moebelmontage',name:'Möbelmontage',image:'project-2026-19.jpg',text:'Regale, Kommoden, Schränke und Wohnmöbel fachgerecht aufbauen.',label:'Für jeden Raum'},
   {slug:'ikea-moebelmontage',name:'IKEA Möbelmontage',image:'g09.jpg',text:'KALLAX, BESTÅ, HEMNES und weitere IKEA Möbel.',label:'Ihr Einkauf, fertig aufgebaut'},
   {slug:'schrankmontage',name:'Schrankmontage',image:'g124.jpg',text:'Kleiderschränke und Garderoben sorgfältig montieren.',label:'Mehr Platz für Ihren Alltag'},
   {slug:'bettmontage',name:'Bettmontage',image:'g030.jpg',text:'Bettgestelle und Stauraumbetten nach Anleitung aufbauen.',label:'Entspannt in den Feierabend'},
@@ -53,9 +53,13 @@ export const inquiryOptions = [
   { value: 'Sonstiges', label: 'Sonstiges' },
 ] as const;
 export const locations = [
-  {slug:'saarbruecken',name:'Saarbrücken'}, {slug:'voelklingen',name:'Völklingen'},
-  {slug:'saarlouis',name:'Saarlouis'}, {slug:'homburg',name:'Homburg'},
-  {slug:'neunkirchen',name:'Neunkirchen'}, {slug:'st-ingbert',name:'St. Ingbert'},
-  {slug:'merzig',name:'Merzig'}, {slug:'zweibruecken',name:'Zweibrücken'},
+  {slug:'saarbruecken',name:'Saarbrücken',latitude:49.2402,longitude:6.9969},
+  {slug:'voelklingen',name:'Völklingen',latitude:49.2516,longitude:6.8587},
+  {slug:'saarlouis',name:'Saarlouis',latitude:49.3137,longitude:6.7526},
+  {slug:'homburg',name:'Homburg',latitude:49.3264,longitude:7.3387},
+  {slug:'neunkirchen',name:'Neunkirchen',latitude:49.3445,longitude:7.1800},
+  {slug:'st-ingbert',name:'St. Ingbert',latitude:49.2765,longitude:7.1169},
+  {slug:'merzig',name:'Merzig',latitude:49.4433,longitude:6.6387},
+  {slug:'zweibruecken',name:'Zweibrücken',latitude:49.2490,longitude:7.3640},
 ];
 
