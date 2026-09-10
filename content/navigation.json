@@ -1,7 +1,7 @@
 [
   { "href": "/leistungen/", "label": "Leistungen" },
   { "href": "/referenzen/", "label": "Referenzen" },
-  { "href": "/gewerbekunden/", "label": "Für Partner" },
+  { "href": "/gewerbekunden/", "label": "Für Geschäftskunden" },
   { "href": "/ueber-uns/", "label": "Über uns" },
   { "href": "/kontakt/", "label": "Kontakt" }
 ]
