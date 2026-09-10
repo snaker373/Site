@@ -10,4 +10,9 @@ execFileSync(process.execPath, ['scripts/optimize-images.mjs'], { stdio: 'inheri
 rmSync('public', { recursive: true, force: true });
 mkdirSync('public', { recursive: true });
 cpSync('assets', join('public', 'assets'), { recursive: true });
+// Keep the portrait source archived locally, but do not publish it while the
+// company presentation intentionally has no personal photography.
+for (const file of ['andrii-photo.jpg','optimized/andrii-photo-720.webp','optimized/andrii-photo-1440.webp']) {
+  rmSync(join('public','assets',file), { force: true });
+}
 cpSync('favicon.svg', 'public/favicon.svg');

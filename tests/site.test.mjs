@@ -95,3 +95,18 @@ test('WhatsApp text preserves service, city and the source page',()=>{
  assert.ok(message.includes('Quelle: saarmontage.de/kuechenmontage/'));
  assert.ok(message.includes('SM-TEST123'));
 });
+
+test('company presentation uses Über uns and contains no personal portraits',()=>{
+ const homepage=read('');
+ const about=read('ueber-uns');
+ for(const html of [homepage,about,read('kontakt')]){
+  assert.ok(!html.includes('andrii-photo.jpg'));
+  assert.ok(!html.includes('about-photo-wrap'));
+  assert.ok(!html.includes('contact-person'));
+ }
+ assert.ok(homepage.includes('Über uns'));
+ for(const text of ['Saarmontage','Andrii Ryndia','Möbelmontage','Küchenmontage','umfangreiche Erfahrung'])assert.ok(about.includes(text),text);
+ assert.ok(about.includes('Ein Unternehmen.'));
+ assert.ok(!fs.existsSync('dist/assets/andrii-photo.jpg'));
+ assert.ok(!fs.existsSync('dist/assets/optimized/andrii-photo-720.webp'));
+});
