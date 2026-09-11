@@ -16,7 +16,7 @@ test('German homepage has accessible contact, animation and comparison controls'
   assert.match(page, /loading="lazy"/);
   assert.ok(!page.includes('Originalfotos meiner Arbeiten'));
   assert.ok(!page.includes('Automatischen Bildwechsel pausieren'));
-  for(const file of ['gallery-hero.jpg','g43.jpg','g248.jpg','g132.jpg','gallery-3.jpg']) assert.ok(page.includes('/assets/'+file),file);
+  for(const file of ['kueche-schwarz-montage-01.png','gallery-hero.jpg','g248.jpg','g132.jpg','gallery-3.jpg']) assert.ok(page.includes('/assets/'+file),file);
   assert.ok(!page.includes('collage-thumb'));
   assert.ok(!page.match(/<header[\s\S]*?>[\s\S]*?Servicegebiet[\s\S]*?<\/header>/));
   assert.ok(page.includes('/assets/optimized/gallery-hero-720.webp'));

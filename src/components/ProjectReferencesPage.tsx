@@ -2,12 +2,22 @@ import gallery from '../../content/gallery.json';
 import { BeforeAfterSlider } from './BeforeAfterSlider';
 import { PhotoLightbox } from './PhotoLightbox';
 
-const groups=[['kuechen','Küchen'],['pax','IKEA PAX'],['schraenke','Schränke'],['betten','Betten'],['buero','Büro & Homeoffice'],['moebel','Wohnmöbel']];
+const groups=[
+  ['kuechen','Küchen','Küchenzeilen, Fronten und Arbeitsplatten'],
+  ['pax','IKEA PAX','Korpusse, Innenausstattung und Türen'],
+  ['schraenke','Schränke','Kleider-, Schiebe- und Stauraumschränke'],
+  ['betten','Betten','Bettgestelle, Tages- und Hochbetten'],
+  ['buero','Büro & Homeoffice','Schreibtische, Regale und Arbeitsplätze'],
+  ['moebel','Wohnmöbel','Kommoden, Vitrinen, Regale und Sofas'],
+];
 
 export function ProjectReferencesPage(){
   return <>
     <section className="page-intro-next references-intro section">
-      <div className="container"><p className="eyebrow">UNSERE ARBEITEN</p><h1>Vom Karton zum<br/>fertigen Zuhause.</h1><p>Originalfotos aus dem Montagealltag, übersichtlich nach Möbelart geordnet. Jedes Bild lässt sich vergrößern.</p></div>
+      <div className="container"><p className="eyebrow">REFERENZEN</p><h1>Unsere Arbeitsbeispiele.<br/>Sauber montiert.</h1><p>Sehen Sie, wie Küchen, IKEA PAX Systeme, Schränke und weitere Möbel nach der Montage aussehen. Alle Aufnahmen stammen aus tatsächlich ausgeführten Projekten.</p></div>
+    </section>
+    <section className="reference-directory section" aria-labelledby="reference-directory-title">
+      <div className="container"><div className="reference-directory-heading"><p className="eyebrow">PROJEKTE NACH BEREICH</p><h2 id="reference-directory-title">Direkt zur passenden Referenz.</h2><p>Wählen Sie eine Kategorie oder scrollen Sie durch die vollständige Sammlung.</p></div><nav className="reference-category-nav" aria-label="Referenzkategorien">{groups.map(([id,label,description])=><a key={id} href={`#${id}`}><span><strong>{label}</strong><small>{description}</small></span><b aria-hidden="true">↓</b></a>)}</nav></div>
     </section>
     <section className="reference-transformation section" aria-labelledby="reference-comparison-title">
       <div className="container reference-comparison-wrap">

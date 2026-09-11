@@ -24,7 +24,7 @@ export const categories = ['Alle Arbeiten', 'Schränke', 'Küchen', 'Betten', 'B
 export type Category = typeof categories[number];
 export const projects: { image: string; title: string; category: Category; detail: string }[] = [
   { image: 'gallery-hero.jpg', title: 'Stauraum, der zu Ihrem Zuhause passt.', category: 'Schränke', detail: 'IKEA PAX · Kleiderschrank' },
-  { image: 'g43.jpg', title: 'Eine Küche. Viele sorgfältige Details.', category: 'Küchen', detail: 'Küche · Schränke und Arbeitsplatte' },
+  { image: 'kueche-schwarz-montage-01.png', title: 'Eine Küche. Viele sorgfältige Details.', category: 'Küchen', detail: 'Küche · Schränke und Arbeitsplatte' },
   { image: 'gallery-3.jpg', title: 'Ein guter Platz zum Abschalten.', category: 'Betten', detail: 'IKEA HEMNES · Tagesbett' },
   { image: 'g248.jpg', title: 'Bereit für einen produktiven Tag.', category: 'Büro', detail: 'IKEA MITTZON · Schreibtisch' },
   { image: 'g132.jpg', title: 'Für jede Sache den richtigen Platz.', category: 'Schränke', detail: 'IKEA PAX · Innenausstattung' },
@@ -32,7 +32,7 @@ export const projects: { image: string; title: string; category: Category; detai
 ];
 
 export const serviceItems = [
-  {slug:'kuechenmontage',name:'Küchenmontage',image:'g43.jpg',text:'Vom Küchenplan bis zu sauber ausgerichteten Fronten.',label:'Für das Herz Ihres Zuhauses'},
+  {slug:'kuechenmontage',name:'Küchenmontage',image:'kueche-schwarz-montage-01.png',text:'Vom Küchenplan bis zu sauber ausgerichteten Fronten.',label:'Für das Herz Ihres Zuhauses'},
   {slug:'pax-montage',name:'IKEA PAX Montage',image:'g132.jpg',text:'Korpusse, Innenausstattung und Türen, die zusammenpassen.',label:'Ordnung bis ins Detail'},
   {slug:'moebelmontage',name:'Möbelmontage',image:'project-2026-19.jpg',text:'Regale, Kommoden, Schränke und Wohnmöbel fachgerecht aufbauen.',label:'Für jeden Raum'},
   {slug:'ikea-moebelmontage',name:'IKEA Möbelmontage',image:'g09.jpg',text:'KALLAX, BESTÅ, HEMNES und weitere IKEA Möbel.',label:'Ihr Einkauf, fertig aufgebaut'},

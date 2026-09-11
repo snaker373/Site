@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { ResponsivePhoto } from './ResponsivePhoto';
 
 const photos=[
+ {file:'kueche-schwarz-montage-01.png',label:'Küchenmontage',text:'Ihre Küche. Sorgfältig montiert.'},
  {file:'gallery-hero.jpg',label:'IKEA PAX Montage',text:'Alles an seinem Platz.'},
- {file:'g43.jpg',label:'Küchenmontage',text:'Ihre Küche. Sorgfältig montiert.'},
  {file:'g248.jpg',label:'Büro & Homeoffice',text:'Bereit für neue Ideen.'},
  {file:'g132.jpg',label:'Schrankmontage',text:'Stauraum bis ins Detail.'},
  {file:'gallery-3.jpg',label:'Bettmontage',text:'Fertig für einen ruhigen Abend.'},
